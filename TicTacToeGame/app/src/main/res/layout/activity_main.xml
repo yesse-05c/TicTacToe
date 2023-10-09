@@ -176,7 +176,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:text="Return"
+        android:text="@string/Return"
         android:textSize="18sp"/>
 
 
