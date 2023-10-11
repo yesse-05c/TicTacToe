@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg"
+    android:background="@drawable/background"
     android:padding="20dp">
 
     <TextView
@@ -59,9 +59,13 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:background="@color/dark_blue"
+            android:inputType="text"
+            android:maxLines="1"
             android:hint="@string/player_one"
+            android:textStyle="italic"
             android:padding="10dp"
-            android:textColorHint="@color/light_text" />
+            android:textColorHint="@color/light_text"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <LinearLayout
@@ -90,13 +94,18 @@
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:inputType="text"
+            android:maxLines="1"
             android:background="@color/dark_blue"
             android:hint="@string/player_two"
+            android:textStyle="italic"
             android:padding="10dp"
-            android:textColorHint="@color/light_text" />
+            android:textColorHint="@color/light_text"
+            android:textColor="@color/white"/>
     </LinearLayout>
 
     <Button
+        android:id="@+id/startGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
