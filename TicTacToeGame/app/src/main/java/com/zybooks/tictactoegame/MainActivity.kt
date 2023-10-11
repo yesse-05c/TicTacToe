@@ -10,13 +10,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val getplayerOne = getIntent().getStringExtra("Player One Name")
-        val getplayerTwo = getIntent().getStringExtra("Player Two Name")
+        var playerOneName = findViewById<TextView>(R.id.playerOneTextview)
+        var playerTwoName = findViewById<TextView>(R.id.playerTwoTextview)
 
-        val playerOneName = findViewById<TextView>(R.id.playerOneTextview)
-        val playerTwoName = findViewById<TextView>(R.id.playerTwoTextview)
+        val intent = intent
 
-        playerOneName.text = "$getplayerOne"
-        playerTwoName.text = "$getplayerTwo"
+        val getplayerOne = intent.getStringExtra("Player one")
+        val getplayerTwo = intent.getStringExtra("Player two")
+
+        playerOneName.text = getplayerOne
+        playerTwoName.text = getplayerTwo
     }
 }
