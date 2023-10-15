@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:padding="20dp"
+    tools:layout_editor_absoluteX="-368dp"
+    tools:layout_editor_absoluteY="-32dp">
+
+    <LinearLayout
+        android:id="@+id/playersTextviews"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toRightOf="@id/gridLayout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/players_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- Name one player will be displayed-->
+            <TextView
+                android:id="@+id/playerOneTextview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/dark_blue"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/light_text"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:adjustViewBounds="true"
+                android:background="@color/dark_blue"
+                android:src="@drawable/pngwing" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/players_background"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!-- Name one player will be displayed-->
+            <TextView
+                android:id="@+id/playerTwoTextview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/dark_blue"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:textColor="@color/light_text"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:adjustViewBounds="true"
+                android:background="@color/dark_blue"
+                android:src="@drawable/zero" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:columnCount="3"
+        android:rowCount="3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/playersTextviews"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/box1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="4dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/box_bg" />
+
+        <Button
+            android:id="@+id/box2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/box_bg" />
+
+        <Button
+            android:id="@+id/box3"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/box_bg" />
+
+        <Button
+            android:id="@+id/box4"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="4dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/box_bg" />
+
+        <Button
+            android:id="@+id/box5"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/box_bg" />
+
+        <Button
+            android:id="@+id/box6"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/box_bg" />
+
+        <Button
+            android:id="@+id/box7"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="4dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/box_bg" />
+
+        <Button
+            android:id="@+id/box8"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/box_bg" />
+
+        <Button
+            android:id="@+id/box9"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="4dp"
+            android:background="@drawable/box_bg" />
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/winnerTextView"
+        android:layout_width="4dp"
+        android:layout_height="13dp"
+        android:layout_marginTop="50dp"
+        android:text=""
+        app:layout_constraintLeft_toRightOf="@id/gridLayout"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/playersTextviews" />
+
+    <Button
+        android:id="@+id/returnBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Return"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
