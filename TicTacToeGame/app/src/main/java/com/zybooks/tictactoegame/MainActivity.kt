@@ -2,6 +2,7 @@ package com.zybooks.tictactoegame
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.GridLayout
 import android.widget.TextView
@@ -11,6 +12,10 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var gridLayout : GridLayout
     private lateinit var ticTacToeGame : TicTacToeGame
+    private lateinit var winnerTextView : TextView
+    private lateinit var getplayerOne : String
+    private lateinit var getplayerTwo : String
+    private var isGameEnded = false
 
     //Key constants for saving and restoring state
     private val PLAYER_KEY = "currentPlayer"
@@ -20,6 +25,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //result TextView
+        winnerTextView = findViewById(R.id.winnerTextView)
+        //Names textViews
         var playerOneName = findViewById<TextView>(R.id.playerOneTextview)
         var playerTwoName = findViewById<TextView>(R.id.playerTwoTextview)
         gridLayout = findViewById(R.id.gridLayout)
@@ -27,8 +35,8 @@ class MainActivity : AppCompatActivity() {
 
         //Displaying player's name
         val intent = intent
-        val getplayerOne = intent.getStringExtra("Player one")
-        val getplayerTwo = intent.getStringExtra("Player two")
+        getplayerOne = intent.getStringExtra("Player one") ?: "Player 1"
+        getplayerTwo = intent.getStringExtra("Player two") ?: "Player 2"
 
         playerOneName.text = getplayerOne
         playerTwoName.text = getplayerTwo
@@ -44,6 +52,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onButtonClick(index : Int, button : Button) {
+
+        //Displaying player's name
+        val intent = intent
+        val getplayerOne = intent.getStringExtra("Player one")
+        val getplayerTwo = intent.getStringExtra("Player two")
+
         val row = index / 3
         val col = index % 3
         if (ticTacToeGame.makeMove(row, col)){
@@ -55,15 +69,30 @@ class MainActivity : AppCompatActivity() {
             when(result){
                 1 -> {
                     //needs to be updated in a winner function to be displayed on the textView
-                    //Toast.makeText(this, "Player 1 (X) wins!", Toast.LENGTH_SHORT).show()
+                    if (getplayerTwo != null) {
+                        displayWinnerMessage(getplayerTwo)
+                    }
                 }
                 2 -> {
-                    //Toast.makeText(this, "Player 2 (O) wins!", Toast.LENGTH_SHORT).show()
+                    if (getplayerOne != null) {
+                        displayWinnerMessage(getplayerOne)
+                    }
                 }
                 3 -> {
-                    //Toast.makeText(this, "It's a draw", Toast.LENGTH_SHORT).show()
+                    displayDrawMessage()
                 }
             }
         }
+    }
+
+    private fun displayWinnerMessage(player : String){
+        val winnerName = player
+        winnerTextView.text = "$winnerName wins!"
+        winnerTextView.visibility = View.VISIBLE
+    }
+    private fun displayDrawMessage(){
+        val message = "It's a draw"
+        winnerTextView.text = message
+        winnerTextView.visibility = View.VISIBLE
     }
 }
