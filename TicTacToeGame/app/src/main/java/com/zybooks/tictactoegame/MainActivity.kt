@@ -52,6 +52,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onButtonClick(index : Int, button : Button) {
+        if(isGameEnded){
+            return
+        }
 
         //Displaying player's name
         val intent = intent
@@ -72,14 +75,17 @@ class MainActivity : AppCompatActivity() {
                     if (getplayerTwo != null) {
                         displayWinnerMessage(getplayerTwo)
                     }
+                    isGameEnded = true
                 }
                 2 -> {
                     if (getplayerOne != null) {
                         displayWinnerMessage(getplayerOne)
                     }
+                    isGameEnded = true
                 }
                 3 -> {
                     displayDrawMessage()
+                    isGameEnded = true
                 }
             }
         }
