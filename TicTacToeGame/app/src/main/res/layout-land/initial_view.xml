@@ -10,7 +10,7 @@
         android:id="@+id/gameName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:text="Tic Tac Toe Game"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -36,12 +36,14 @@
         android:id="@+id/EnterplayerOne"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="16dp"
         android:background="@color/dark_blue"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/enterNames">
 
         <ImageView
@@ -59,25 +61,27 @@
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:background="@color/dark_blue"
+            android:hint="@string/player_one"
             android:inputType="text"
             android:maxLines="1"
-            android:hint="@string/player_one"
-            android:textStyle="italic"
             android:padding="10dp"
+            android:textColor="@color/white"
             android:textColorHint="@color/light_text"
-            android:textColor="@color/white"/>
+            android:textStyle="italic" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/EnterplayerTwo"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="16dp"
         android:background="@color/dark_blue"
         android:gravity="center_vertical"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/EnterplayerOne">
 
         <ImageView
@@ -94,21 +98,21 @@
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:inputType="text"
-            android:maxLines="1"
             android:background="@color/dark_blue"
             android:hint="@string/player_two"
-            android:textStyle="italic"
+            android:inputType="text"
+            android:maxLines="1"
             android:padding="10dp"
+            android:textColor="@color/white"
             android:textColorHint="@color/light_text"
-            android:textColor="@color/white"/>
+            android:textStyle="italic" />
     </LinearLayout>
 
     <Button
         android:id="@+id/startGame"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/start_button"
         android:text="Start Game"
         android:textColor="@color/black"
