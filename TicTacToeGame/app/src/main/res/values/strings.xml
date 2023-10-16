@@ -2,5 +2,5 @@
     <string name="app_name">TicTacToeGame</string>
     <string name="player_two">Enter player one name</string>
     <string name="player_one">Enter player two name</string>
-    <string name="Return">Return</string>
+    <string name="Return">Reset</string>
 </resources>

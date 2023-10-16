@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         var playerOneName = findViewById<TextView>(R.id.playerOneTextview)
         var playerTwoName = findViewById<TextView>(R.id.playerTwoTextview)
         gridLayout = findViewById(R.id.gridLayout)
+        //Implementing reset button
+        val resetButton = findViewById<Button>(R.id.returnBtn)
         ticTacToeGame = TicTacToeGame()
 
         //Displaying player's name
@@ -49,6 +51,11 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        resetButton.setOnClickListener{
+            ticTacToeGame.resetGame()
+            resetBoard()
+
+        }
     }
 
     private fun onButtonClick(index : Int, button : Button) {
@@ -100,5 +107,15 @@ class MainActivity : AppCompatActivity() {
         val message = "It's a draw"
         winnerTextView.text = message
         winnerTextView.visibility = View.VISIBLE
+    }
+
+    fun resetBoard(){
+        for(i in 1..9){
+            val box = findViewById<Button>(resources.getIdentifier("box$i", "id", packageName))
+            box.setBackgroundResource(R.drawable.box_bg)
+            box.isClickable = true
+        }
+        winnerTextView.visibility = View.INVISIBLE
+        isGameEnded = false
     }
 }

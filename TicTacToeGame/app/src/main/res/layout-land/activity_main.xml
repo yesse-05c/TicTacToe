@@ -101,21 +101,24 @@
             android:layout_height="100dp"
             android:layout_margin="4dp"
             android:layout_marginLeft="30dp"
-            android:background="@drawable/box_bg" />
+            android:background="@drawable/box_bg"
+            android:clickable="true"/>
 
         <Button
             android:id="@+id/box2"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="4dp"
-            android:background="@drawable/box_bg" />
+            android:background="@drawable/box_bg"
+            android:clickable="true"/>
 
         <Button
             android:id="@+id/box3"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="4dp"
-            android:background="@drawable/box_bg" />
+            android:background="@drawable/box_bg"
+            android:clickable="true"/>
 
         <Button
             android:id="@+id/box4"
@@ -123,21 +126,24 @@
             android:layout_height="100dp"
             android:layout_margin="4dp"
             android:layout_marginLeft="30dp"
-            android:background="@drawable/box_bg" />
+            android:background="@drawable/box_bg"
+            android:clickable="true"/>
 
         <Button
             android:id="@+id/box5"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="4dp"
-            android:background="@drawable/box_bg" />
+            android:background="@drawable/box_bg"
+            android:clickable="true"/>
 
         <Button
             android:id="@+id/box6"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="4dp"
-            android:background="@drawable/box_bg" />
+            android:background="@drawable/box_bg"
+            android:clickable="true"/>
 
         <Button
             android:id="@+id/box7"
@@ -145,21 +151,24 @@
             android:layout_height="100dp"
             android:layout_margin="4dp"
             android:layout_marginLeft="30dp"
-            android:background="@drawable/box_bg" />
+            android:background="@drawable/box_bg"
+            android:clickable="true"/>
 
         <Button
             android:id="@+id/box8"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="4dp"
-            android:background="@drawable/box_bg" />
+            android:background="@drawable/box_bg"
+            android:clickable="true"/>
 
         <Button
             android:id="@+id/box9"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="4dp"
-            android:background="@drawable/box_bg" />
+            android:background="@drawable/box_bg"
+            android:clickable="true"/>
     </GridLayout>
 
     <TextView
