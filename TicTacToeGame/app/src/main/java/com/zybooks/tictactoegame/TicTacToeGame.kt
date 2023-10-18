@@ -1,9 +1,13 @@
 package com.zybooks.tictactoegame
+import kotlinx.parcelize.Parcelize
+import android.os.Parcelable
+import android.widget.Button
 
-const val GRID_SIZDE = 3
-class TicTacToeGame {
+const val GRID_SIZE = 3
+@Parcelize
+class TicTacToeGame : Parcelable  {
 
-    private val tictactoeArray = Array(GRID_SIZDE){ IntArray(GRID_SIZDE)}
+    private val tictactoeArray = Array(GRID_SIZE){ IntArray(GRID_SIZE)}
     private var currentPlayer = 1
 
     fun makeMove(row :Int, col : Int): Boolean{
@@ -28,7 +32,7 @@ class TicTacToeGame {
     }
 
     private fun checkCols(): Boolean {
-        for(col in 0 until 3){
+        for(col in 0 until GRID_SIZE){
             if(tictactoeArray[0][col] == tictactoeArray[1][col] && tictactoeArray[1][col] == tictactoeArray[2][col] && tictactoeArray[0][col] != 0){
                 return true
             }
@@ -37,7 +41,7 @@ class TicTacToeGame {
     }
 
     private fun checkRows(): Boolean {
-        for(row in 0 until 3){
+        for(row in 0 until GRID_SIZE){
             if(tictactoeArray[row][0] == tictactoeArray[row][1] && tictactoeArray[row][1] == tictactoeArray[row][2] && tictactoeArray[row][0] != 0){
                 return true
             }
@@ -51,8 +55,8 @@ class TicTacToeGame {
     }
 
     private fun isBoardFull(): Boolean {
-        for (row in 0 until 3){
-            for (col in 0 until 3){
+        for (row in 0 until GRID_SIZE){
+            for (col in 0 until GRID_SIZE){
                 if (tictactoeArray[row][col] == 0){
                     return false
                 }
@@ -68,11 +72,30 @@ class TicTacToeGame {
         return tictactoeArray
     }
     fun resetGame(){
-        for (i in 0 until 3) {
-            for (j in 0 until 3) {
+        for (i in 0 until GRID_SIZE) {
+            for (j in 0 until GRID_SIZE) {
                 tictactoeArray[i][j] = 0
             }
         }
         currentPlayer = 1
+    }
+
+    fun updateUIFromGameBoard(buttons: List<Button>){
+        for(row in 0 until GRID_SIZE) {
+            for (col in 0 until GRID_SIZE) {
+                val index = row * GRID_SIZE + col
+                val cellValue = tictactoeArray[row][col]
+
+                //assigning to the buttons on the grid
+                val button = buttons[index]
+
+                when(cellValue){
+                    1-> button.setBackgroundResource(R.drawable.zero) //Assigning X
+                    2-> button.setBackgroundResource(R.drawable.pngwing) //Assigning 0
+                    else -> button.setBackgroundResource(R.drawable.box_bg)
+                }
+
+            }
+        }
     }
 }

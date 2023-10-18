@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
 
     //Key constants for saving and restoring state
     private val PLAYER_KEY = "currentPlayer"
-    private val GAME_BOARD = "gameBoard"
+    private val GAME_STATE = "game_state"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity() {
         winnerTextView.visibility = View.VISIBLE
     }
 
-    fun resetBoard(){
+    private fun resetBoard(){
         for(i in 1..9){
             val box = findViewById<Button>(resources.getIdentifier("box$i", "id", packageName))
             box.setBackgroundResource(R.drawable.box_bg)
@@ -117,5 +117,30 @@ class MainActivity : AppCompatActivity() {
         }
         winnerTextView.visibility = View.INVISIBLE
         isGameEnded = false
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable(GAME_STATE, ticTacToeGame)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        val savedGameState = savedInstanceState.getParcelable<TicTacToeGame>(GAME_STATE)
+        if(savedGameState != null){
+            ticTacToeGame = savedGameState
+            val buttons = listOf<Button>(
+                findViewById(R.id.box1),
+                findViewById(R.id.box2),
+                findViewById(R.id.box3),
+                findViewById(R.id.box4),
+                findViewById(R.id.box5),
+                findViewById(R.id.box6),
+                findViewById(R.id.box7),
+                findViewById(R.id.box8),
+                findViewById(R.id.box9)
+            )
+            ticTacToeGame.updateUIFromGameBoard(buttons)
+        }
     }
 }

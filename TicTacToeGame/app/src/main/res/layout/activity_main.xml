@@ -98,9 +98,9 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="4dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="25dp"
             android:background="@drawable/box_bg"
-            android:clickable="true"/>
+            android:clickable="true" />
 
         <Button
             android:id="@+id/box2"
@@ -123,9 +123,9 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="4dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="25dp"
             android:background="@drawable/box_bg"
-            android:clickable="true"/>
+            android:clickable="true" />
 
         <Button
             android:id="@+id/box5"
@@ -148,9 +148,9 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="4dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="25dp"
             android:background="@drawable/box_bg"
-            android:clickable="true"/>
+            android:clickable="true" />
 
         <Button
             android:id="@+id/box8"
