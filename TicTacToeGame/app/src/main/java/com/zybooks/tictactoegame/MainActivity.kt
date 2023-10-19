@@ -8,6 +8,7 @@ import android.widget.GridLayout
 import android.widget.TextView
 import android.widget.Toast
 
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var gridLayout : GridLayout
@@ -18,8 +19,9 @@ class MainActivity : AppCompatActivity() {
     private var isGameEnded = false
 
     //Key constants for saving and restoring state
-    private val PLAYER_KEY = "currentPlayer"
     private val GAME_STATE = "game_state"
+    private val WINNER_VIEW = "winner"
+    private val IS_GAME_ENDED = "game ended"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -83,16 +85,19 @@ class MainActivity : AppCompatActivity() {
                         displayWinnerMessage(getplayerTwo)
                     }
                     isGameEnded = true
+                    disableButtons()
                 }
                 2 -> {
                     if (getplayerOne != null) {
                         displayWinnerMessage(getplayerOne)
                     }
                     isGameEnded = true
+                    disableButtons()
                 }
                 3 -> {
                     displayDrawMessage()
                     isGameEnded = true
+                    disableButtons()
                 }
             }
         }
@@ -122,11 +127,21 @@ class MainActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putParcelable(GAME_STATE, ticTacToeGame)
+        outState.putString(WINNER_VIEW, winnerTextView.text.toString())
+        outState.putBoolean(IS_GAME_ENDED, isGameEnded)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         val savedGameState = savedInstanceState.getParcelable<TicTacToeGame>(GAME_STATE)
+        val savedWinnerText = savedInstanceState.getString(WINNER_VIEW)
+        isGameEnded = savedInstanceState.getBoolean(IS_GAME_ENDED,false)
+        if(savedWinnerText != null){
+            winnerTextView.text = savedWinnerText
+            if(!savedWinnerText.isBlank()){
+                winnerTextView.visibility = View.VISIBLE
+            }
+        }
         if(savedGameState != null){
             ticTacToeGame = savedGameState
             val buttons = listOf<Button>(
@@ -140,7 +155,18 @@ class MainActivity : AppCompatActivity() {
                 findViewById(R.id.box8),
                 findViewById(R.id.box9)
             )
+
+            if(isGameEnded){
+                disableButtons()
+            }
             ticTacToeGame.updateUIFromGameBoard(buttons)
+        }
+    }
+
+    private fun disableButtons() {
+        for(i in 1..9) {
+            val box = findViewById<Button>(resources.getIdentifier("box$i", "id", packageName))
+            box.isClickable = true
         }
     }
 }

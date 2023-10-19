@@ -90,8 +90,8 @@ class TicTacToeGame : Parcelable  {
                 val button = buttons[index]
 
                 when(cellValue){
-                    1-> button.setBackgroundResource(R.drawable.zero) //Assigning X
-                    2-> button.setBackgroundResource(R.drawable.pngwing) //Assigning 0
+                    1-> button.setBackgroundResource(R.drawable.pngwing) //Assigning X
+                    2-> button.setBackgroundResource(R.drawable.zero) //Assigning 0
                     else -> button.setBackgroundResource(R.drawable.box_bg)
                 }
 

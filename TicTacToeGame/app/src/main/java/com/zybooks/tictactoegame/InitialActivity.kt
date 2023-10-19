@@ -20,15 +20,22 @@ class InitialActivity : AppCompatActivity() {
     //variables to store text
     private lateinit var getPlayerOne : String
     private lateinit var getPlayerTwo : String
-    private lateinit var gameState : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.initial_view)
 
-        playerOneName = findViewById<EditText>(R.id.playerOne)
-        playerTwoName = findViewById<EditText>(R.id.playerTwo)
-        startGame = findViewById<Button>(R.id.startGame)
+        playerOneName = findViewById(R.id.playerOne)
+        playerTwoName = findViewById(R.id.playerTwo)
+        startGame = findViewById(R.id.startGame)
+
+        getPlayerOne = ""
+        getPlayerTwo = ""
+
+        if(savedInstanceState != null){
+            getPlayerOne = savedInstanceState.getString("Player One Name", "")
+            getPlayerTwo = savedInstanceState.getString("Player Two Name", "")
+        }
 
 
         //event listener in sender button
@@ -42,11 +49,9 @@ class InitialActivity : AppCompatActivity() {
                 Toast.makeText(this, "Add players name", Toast.LENGTH_LONG)
                     .show()
             } else {
-                gameState = "Game State here"
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("Player one", getPlayerOne)
                 intent.putExtra("Player two", getPlayerTwo)
-                intent.putExtra("game state", gameState)
                 startActivity(intent)
             }
         }
@@ -56,13 +61,11 @@ class InitialActivity : AppCompatActivity() {
         super.onSaveInstanceState(outState)
         outState.putString("Player One Name", getPlayerOne)
         outState.putString("Player Two Name", getPlayerTwo)
-        outState.putString("Game state", gameState)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         getPlayerOne = savedInstanceState.getString("Player One Name",getPlayerOne)
         getPlayerTwo = savedInstanceState.getString("Player Two Name",getPlayerTwo)
-        gameState = savedInstanceState.getString("Game state", gameState)
     }
 }
