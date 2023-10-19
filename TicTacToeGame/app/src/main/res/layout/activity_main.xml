@@ -189,6 +189,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:text="@string/Return"
+        android:background="@color/dark_blue"
         android:textSize="18sp"/>
 
 

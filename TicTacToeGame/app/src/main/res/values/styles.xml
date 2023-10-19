@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/bg</item>
+        <item name="colorPrimaryDark">@color/dark_blue</item>
+    </style>
+    
+    <style name="Widget.AppTheme.Button" parent="@style/Widget.AppCompat.Button">
+        <item name="cornerRadius">10dp</item>
+        <item name="backgroundColor">@color/startbtn</item>
+    </style>
 
 </resources>
